@@ -85,4 +85,10 @@ public abstract class BaseService<E extends BaseEntity, D> {
         return dtos;
     }
 
+    @Transactional
+    public D findById(Long id) {
+        repository.findById(id).orElseThrow();
+
+    return toDto(repository.findById);
 }
+    }

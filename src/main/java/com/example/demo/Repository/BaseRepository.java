@@ -2,6 +2,7 @@ package com.example.demo.Repository;
 
 import java.util.List;
 
+import com.example.demo.Entity.Recurso;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -21,4 +22,6 @@ public interface BaseRepository<T, ID> extends JpaRepository<T, ID> {
     @Query("UPDATE #{#entityName} e SET e.ativo = FALSE, e.deletedAt = CURRENT_TIMESTAMP WHERE e.id = :id")
     void softDeleteById(ID id);
 
+    @Query("SELECT e FROM #{entityName} e WHERE e .id = :id")
+    Recurso findById(String id);
 }

@@ -28,7 +28,7 @@ public class ReservaController extends BaseController<ReservaDTO> {
 
     }
 
-    @GetMapping("/por-ambiente/{ambienteId}")
+    @GetMapping("/por-ambiente/{ambienteId}     ")
     public List<ReservaDTO> reservaPorAmbiente(
             @PathVariable("ambienteId") Long ambienteId) {
         return service.listaPorAmbiente(ambienteId);
